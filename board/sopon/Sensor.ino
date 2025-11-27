@@ -15,7 +15,7 @@ void ReadCalibrate() {  //ค่าที่ Calibrate แล้ว
     long x = 0;
     calmin = MinValue[i];
     calmax = MaxValue[i];
-    x = map(F[i], calmin, calmax,1000,0);       //สลับค่าสนาม เส้นดำ   0,1000       เส้นขาว  1000,0
+    x = map(F[i], calmin, calmax,1000, 0);       //สลับค่าสนาม เส้นดำ   0,1000       เส้นขาว  1000,0
     if (x < 0) x = 0;
     if (x > 1000) x = 1000;
     F[i] = x;

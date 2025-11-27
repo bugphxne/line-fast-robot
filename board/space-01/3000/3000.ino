@@ -23,14 +23,14 @@ void setup() {
   delay(500);
   // Motor(20, 20);delay(500);
   // SerialF();
-  // ShowCalibrate();
+  ShowCalibrate();
 
   // TrackTime(40, 0.11, 1, 12000);
 
   // TrackTime(70, 0.12, 1.12, 20000);
 
   // TrackTime(71.5, 0.12, 1.13, 4200);
-   TrackTime(50, 0.11, 0.45, 35000);
+  //  TrackTime(50, 0.11, 0.45, 35000);
 
 
   // TrackTime(10.5, 0.14, 0.8, 35000);

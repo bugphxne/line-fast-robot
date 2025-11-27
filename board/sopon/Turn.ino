@@ -1,24 +1,25 @@
 void TurnLeft() { // เลี้ยวซ้าย
-Motor(70, 70); delay(90);
-Motor(150, -150); delay(50);
+Motor(50, 50); delay(75);
+Motor(130, -150); delay(50);
   while (1) {
-    Motor(150, -150);
+    Motor(130, -150);
     ReadCalibrate();
-    if (F[1] >= 400) {
-      Motor(-150,150); delay(5);
+    if (F[0] >= 500) {
+      Motor(-150,130); delay(5);
       MotorStop();
       break;
     }
   }
 }
+
 void TurnRight() { // เลี้ยวขวา
-Motor(70, 70); delay(90);
-Motor(-150, 150); delay(50);
+Motor(50, 50); delay(75);
+Motor(-170, 150); delay(50);
   while (1) {
-    Motor(-150,150);
+    Motor(-170,150);
     ReadCalibrate();
-    if (F[6] >= 400) {
-      Motor(150,-150); delay(5);
+    if (F[7] >= 500) {
+      Motor(150,-170); delay(5);
       MotorStop();
       break;
     }

@@ -28,7 +28,7 @@ int readPosition(int Track, int noise) {  //อ่านค่า Position
 }
 
 void PID(int Speed, float Kp, float Kd) {  // คำสั่ง PID
-  Speed = map(Speed, -100, 100, -255, 255);
+  Speed = map(Speed, -100, 100, -250, 250);
   int Pos = readPosition(250, 50);
   int Error = Pos - 3500;
   int PID_Value = (Kp * Error) + (Kd * (Error - LastError));
@@ -36,9 +36,9 @@ void PID(int Speed, float Kp, float Kd) {  // คำสั่ง PID
   int LeftPower = Speed - PID_Value;
   int RightPower = Speed + PID_Value;
   if (LeftPower > 255) LeftPower = 255;
-  if (LeftPower < 0) LeftPower = -130;
+  if (LeftPower < 0) LeftPower = -180;
   if (RightPower > 255) RightPower = 255;
-  if (RightPower < 0) RightPower = -130;
+  if (RightPower < 0) RightPower = -180;
   Motor(LeftPower, RightPower);
 }
 
@@ -46,10 +46,10 @@ void TrackCross(int Speed, float Kp, float Kd, char select) { // PID เช็�
   while (1) {
     PID(Speed, Kp, Kd);
     ReadCalibrate();
-    if (F[0] < 400 && F[7] < 400) {
+    if (F[0] < 500 && F[7] < 500) {
     PID(Speed, Kp, Kd);
     ReadCalibrate();
-  } else if (F[0] > 400 && F[1] > 400 && F[6] > 400 && F[7] > 400) {
+  } else if (F[0] > 600 && F[1] > 600 && F[2] > 600 && F[3] > 600) {
     break;
   } /*else if (F[4] > 500 && F[5] > 500 && F[6] > 500 && F[7] > 500) {
     break;
@@ -67,7 +67,7 @@ if (select == 's') {
     ReadCalibrate();
   } else if (select == 'p') {
     Motor(Speed, Speed);
-    delay(20);
+    delay(100);
    } else if (select == 'l') {
      ReadCalibrate();
     TurnLeft();
